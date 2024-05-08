@@ -1,4 +1,5 @@
 # Logs
+package-lock.json
 .vim/
 logs
 *.log

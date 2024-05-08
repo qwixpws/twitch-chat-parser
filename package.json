@@ -8,10 +8,17 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon ./index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:qwixpws/twitch-chat-parser.git"
+  },
   "author": "striksy",
   "license": "MIT",
   "dependencies": {
+    "electron": "^30.0.2",
     "luxon": "^3.4.4",
-    "tmi.js": "^1.8.5"
+    "npx": "^10.2.2",
+    "tmi.js": "^1.8.5",
+    "url": "^0.11.3"
   }
 }
