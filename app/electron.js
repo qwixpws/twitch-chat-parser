@@ -7,13 +7,15 @@ import fs from 'fs';
 //const electron = require('electron');
 const appDir = path.join(process.cwd(), 'app');
 const logDir = path.join(process.cwd(), 'logs');
+const channelName = 'tfblade';
+const logFile = path.join(logDir, channelName, 'renderHTML.html');
 
 let mainWindow;
 
 function createWindow() {
     mainWindow = new electron.BrowserWindow({
-        width: 400,
-        height: 800,
+        width: 600,
+        height: 600,
         transparent: true,
         frame: false,
         webPreferences: {
@@ -33,7 +35,7 @@ function createWindow() {
     mainWindow.setPosition(0, 0, true);
 
     setInterval(() => {
-        getFileLines('../logs/tfblade/tfblade-08.05.2024.txt')
+        getFileLines(logFile)
     }, 1000);
 }
 
@@ -54,13 +56,12 @@ function tail(filePath, linesCount) {
 }
 
 function getFileLines(log) {
-    const logFile = path.join(logDir, log);
+    const logFile = log;
     const content = tail(logFile, 15);
     //mainWindow.ipcRenderer.send('fileupdated', content);
     mainWindow.webContents.executeJavaScript(`
-            document.getElementById('file-content').innerHTML= ${JSON.stringify(content)};
+            document.getElementById('chat').innerHTML= ${JSON.stringify(content)};
         `);
-    //console.log(mainWindow.webContents.ipc);
     return content;
 }
 

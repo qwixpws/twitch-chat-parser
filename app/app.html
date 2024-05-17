@@ -1,40 +1,59 @@
 <!DOCTYPE>
 <html>
-    <head>
-        <meta charset="UTF-8"> 
-        <meta name="viewport" content="width=device-width, intial-scale=1.0">
-        <title>Chat output:::</title>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, intial-scale=1.0">
+    <title>Chat output:::</title>
     <style>
         body {
-            background-color: rgba(0, 0, 0, 0.1); /* полупрозрачный черный фон */
-            color: white; /* цвет текста */
-            font-family: Arial, sans-serif; /* шрифт */
-            padding: 10px; /* отступы вокруг сообщений */
+            background-color: rgba(0, 0, 0, 0.7);
+            /* полупрозрачный черный фон */
+            color: white;
+            /* цвет текста */
+            font-family: Arial, sans-serif;
+            /* шрифт */
+            padding: 10px;
+            /* отступы вокруг сообщений */
+        }
+
+        #chat {
+            display: grid;
+            grid-template-columns: 1fr 6fr;
+            /* Три колонки: для времени, ника и сообщения */
+            gap: 10px;
+            /* Расстояние между колонками */
         }
 
         .message {
-            margin-bottom: 5px; /* отступ между сообщениями */
-            padding: 5px; /* отступы внутри сообщения */
-            border-radius: 5px; /* скругление углов сообщения */
+            display: contents;
         }
 
-        .timestamp {
-            font-weight: bold; /* жирный текст для времени сообщения */
-        }
+         --.timestamp {
+             --grid-column: 1;
+             --font-weight: bold;
+             --/* жирный текст для времени сообщения */
+         --}
 
         .user {
-            color: cyan; /* цвет имени пользователя */
-            font-weight: bold; /* жирный текст для имени пользователя */
+            grid-column: 1;
+            color: cyan;
+            /* цвет имени пользователя */
+            font-weight: bold;
+            /* жирный текст для имени пользователя */
         }
 
         .content {
-            margin-left: 10px; /* отступ текста сообщения от левого края */
+            grid-column: 2;
+            margin-left: 10px;
+            /* отступ текста сообщения от левого края */
         }
     </style>
-    </head>
-    <body>
-        <div id='chat'>Chat HERE:::</div>
-        <script src='../index.js'></script>
-        <div id='file-content'></div>
-    </body>
+</head>
+
+<body>
+    <div id='chat'> </div>
+    <script src='../index.js'></script>
+</body>
+
 </html>

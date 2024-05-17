@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon ./index.js"
+    "dev": "nodemon ./index.js",
+    "start": "nodemon ./index.js & npx electron ./app/electron.js"
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,7 @@
   "dependencies": {
     "electron": "^30.0.2",
     "luxon": "^3.4.4",
-    "npx": "^10.2.2",
+    "npx": "^3.0.0",
     "tmi.js": "^1.8.5",
     "url": "^0.11.3"
   }

@@ -1,5 +1,9 @@
 import { fork, spawn, exec } from 'child_process';
 import { error } from 'console';
+import path from 'path';
+
+const electronApp = path.join(process.cwd(), 'app', 'electron.js');
+const npxPath = path.join(process.cwd(), 'node_modules', '.bin', 'npx');
 
 function startChildProccess(file, ...args) {
     const childProcess = spawn('node', [file, ...args]);
@@ -19,9 +23,9 @@ function startChildProccess(file, ...args) {
 
 function npxStart(...args) {
     //console.log(/^win/.test(process.platform));
-    const argsString = [...args].join(' ');
+    //const argsString = [...args].join(' ');
     //const childProcess = spawn('npx', ['electron', ...args], { stdio: 'inherit' });
-    const childProcess = spawn('sh',['npx', 'electron', '../app/electron.js'], {stdio: 'inherit'});
+    const childProcess = spawn('npx', ['electron', electronApp], { stdio: 'inherit' });
     childProcess.on('error', err => console.log(err));
     return childProcess;
 };
